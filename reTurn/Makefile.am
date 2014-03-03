@@ -1,13 +1,13 @@
 # $Id$
 
-EXTRA_DIST = dh512.pem server.pem
-EXTRA_DIST += pkg
-EXTRA_DIST += README.txt
-EXTRA_DIST += *.sln
-EXTRA_DIST += *.vcproj
-EXTRA_DIST += reTurnServer_10_0.vcxproj reTurnServer_10_0.vcxproj.filters
-EXTRA_DIST += reTurnServer.config
-EXTRA_DIST += users.txt
+EXTRA_DIST = $(srcdir)/dh512.pem server.pem
+EXTRA_DIST += $(srcdir)/pkg
+EXTRA_DIST += $(srcdir)/README.txt
+EXTRA_DIST += $(srcdir)/*.sln
+EXTRA_DIST += $(srcdir)/*.vcproj
+EXTRA_DIST += $(srcdir)/reTurnServer_10_0.vcxproj $(srcdir)/reTurnServer_10_0.vcxproj.filters
+EXTRA_DIST += $(srcdir)/reTurnServer.config
+EXTRA_DIST += $(srcdir)/users.txt
 
 dist_man_MANS = reTurnServer.8
 

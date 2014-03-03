@@ -1,6 +1,6 @@
 
 
-AUTOMAKE_OPTIONS = foreign dist-tarZ
+AUTOMAKE_OPTIONS = foreign
 ACLOCAL_AMFLAGS = -I m4
 
 SUBDIRS = rutil
@@ -12,32 +12,12 @@ if BUILD_TFM
 SUBDIRS += tfm
 endif
 
-if BUILD_APPS
-SUBDIRS += apps
-endif
 
-# The Makefiles for these don't separate SSL stuff yet...
-if USE_SSL
-SUBDIRS += reTurn
-if BUILD_RECON
-SUBDIRS += reflow
-SUBDIRS += resip/recon
-endif
-SUBDIRS += presSvr
-if BUILD_P2P
-SUBDIRS += p2p/s2c/s2c p2p
-endif
-endif
-
-#EXTRA_DIST = build-contrib.sh
-
-EXTRA_DIST = reSIProcate_10_0.sln
-#EXTRA_DIST += reSIProcate_7_1.sln
-EXTRA_DIST += reSIProcate_8_0.sln
-EXTRA_DIST += reSIProcate_9_0.sln
-
-EXTRA_DIST += resiprocate.spec
-
+EXTRA_DIST = $(srcdir)/reSIProcate_10_0.sln
+EXTRA_DIST += $(srcdir)/reSIProcate_8_0.sln
+EXTRA_DIST += $(srcdir)/reSIProcate_9_0.sln
+EXTRA_DIST += $(srcdir)/.tarball-revision
+EXTRA_DIST += sipxresiprocate.spec
 EXTRA_DIST += RELEASE-PROCESS.txt
 EXTRA_DIST += build/configure-android.sh
-
+EXTRA_DIST += $(srcdir)/contrib/cajun/include/cajun/*

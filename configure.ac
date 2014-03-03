@@ -1,5 +1,5 @@
 
-AC_INIT(resiprocate,1.9.1)
+AC_INIT(sipxresiprocate,4.6.0)
 AC_CONFIG_SRCDIR(repro/repro.cxx)
 
 SO_RELEASE=`echo $PACKAGE_VERSION | cut -f1,2 -d.`
@@ -116,7 +116,7 @@ ARCH_CPPFLAGS="-DRESIP_OSTYPE_${OSTYPE_UPPER} -DRESIP_ARCH_${ARCH_UPPER} -DRESIP
 
 AC_C_BIGENDIAN([AC_DEFINE_UNQUOTED(RESIP_BIG_ENDIAN, , RESIP_BIG_ENDIAN)])
 
-CPPFLAGS="${CPPFLAGS} ${ARCH_CPPFLAGS} ${TOOLCHAIN_CPPFLAGS}"
+CPPFLAGS="${CPPFLAGS} ${ARCH_CPPFLAGS} ${TOOLCHAIN_CPPFLAGS} -I${srcdir} -I${srcdir}/contrib/cajun/include"
 
 AH_TEMPLATE([HAVE_sockaddr_in_len], [Define if sockaddr_in.sin_len exists])
 AC_CHECK_MEMBER([struct sockaddr_in.sin_len], AC_DEFINE(HAVE_sockaddr_in_len),,
@@ -323,24 +323,7 @@ AC_OUTPUT(Makefile \
 	tfm/Makefile \
 	tfm/repro/Makefile \
 	tfm/tfdum/Makefile \
-	apps/Makefile \
-	apps/clicktocall/Makefile \
-	apps/clicktocall/test/Makefile \
-	apps/ichat-gw/Makefile \
-	apps/ichat-gw/jabberconnector/Makefile \
-	apps/sipdial/Makefile \
-	resiprocate.spec \
-	reTurn/Makefile \
-	reTurn/test/Makefile \
-	reTurn/client/Makefile \
-	reTurn/client/test/Makefile \
-	reflow/Makefile \
-	resip/recon/Makefile \
-	resip/recon/MOHParkServer/Makefile \
-	resip/recon/test/Makefile \
-	presSvr/Makefile \
-	p2p/s2c/s2c/Makefile \
-	p2p/Makefile \
+	sipxresiprocate.spec \
 	)
 
 

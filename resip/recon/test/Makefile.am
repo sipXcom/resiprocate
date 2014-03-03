@@ -1,8 +1,8 @@
 
-EXTRA_DIST = ca.pem
-EXTRA_DIST += *.vcxproj *.vcxproj.filters
-EXTRA_DIST += *.vcproj
-EXTRA_DIST += testua_readme.txt
+EXTRA_DIST = $(srcdir)/ca.pem
+EXTRA_DIST += $(srcdir)/*.vcxproj $(srcdir)/*.vcxproj.filters
+EXTRA_DIST += $(srcdir)/*.vcproj
+EXTRA_DIST += $(srcdir)/testua_readme.txt
 
 LDADD = ../librecon.la
 LDADD += ../../../reflow/libreflow.la

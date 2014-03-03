@@ -1,9 +1,9 @@
 # $Id$
 
-EXTRA_DIST = clicktocall.config
-EXTRA_DIST += doc
-EXTRA_DIST += *.sln
-EXTRA_DIST += *.vcproj
+EXTRA_DIST = $(srcdir)/clicktocall.config
+EXTRA_DIST += $(srcdir)/doc
+EXTRA_DIST += $(srcdir)/*.sln
+EXTRA_DIST += $(srcdir)/*.vcproj
 
 SUBDIRS = .
 SUBDIRS += test

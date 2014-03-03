@@ -1,23 +1,23 @@
 # $Id$
 
-EXTRA_DIST = *.html
-EXTRA_DIST += doc
-EXTRA_DIST += pkg
-EXTRA_DIST += Doxyfile
-EXTRA_DIST += php
-EXTRA_DIST += README_MySQL.txt
-EXTRA_DIST += repro_10_0.vcxproj repro_10_0.vcxproj.filters
-EXTRA_DIST += reprolib_10_0.vcxproj reprolib_10_0.vcxproj.filters
-EXTRA_DIST += *.vcproj
-#EXTRA_DIST += *.db
-EXTRA_DIST += VERSION
-EXTRA_DIST += webadmin
-EXTRA_DIST += WinSetup WinSetupx64
-EXTRA_DIST += repro.config
-EXTRA_DIST += repro.config.ws
-EXTRA_DIST += create_mysql_reprodb.sql
-EXTRA_DIST += genUsers.cxx
-EXTRA_DIST += users.txt
+EXTRA_DIST = $(srcdir)/*.html
+EXTRA_DIST += $(srcdir)/doc
+EXTRA_DIST += $(srcdir)/pkg
+EXTRA_DIST += $(srcdir)/Doxyfile
+EXTRA_DIST += $(srcdir)/php
+EXTRA_DIST += $(srcdir)/README_MySQL.txt
+EXTRA_DIST += $(srcdir)/repro_10_0.vcxproj $(srcdir)/repro_10_0.vcxproj.filters
+EXTRA_DIST += $(srcdir)/reprolib_10_0.vcxproj $(srcdir)/reprolib_10_0.vcxproj.filters
+EXTRA_DIST += $(srcdir)/*.vcproj
+#EXTRA_DIST += $(srcdir)/*.db
+EXTRA_DIST += $(srcdir)/VERSION
+EXTRA_DIST += $(srcdir)/webadmin
+EXTRA_DIST += $(srcdir)/WinSetup $(srcdir)/WinSetupx64
+EXTRA_DIST += $(srcdir)/repro.config
+EXTRA_DIST += $(srcdir)/repro.config.ws
+EXTRA_DIST += $(srcdir)/create_mysql_reprodb.sql
+EXTRA_DIST += $(srcdir)/genUsers.cxx
+EXTRA_DIST += $(srcdir)/users.txt
 
 SUBDIRS = . test reprocmd accountingconsumers
 if BUILD_REPRO_DSO_PLUGINS
@@ -25,7 +25,7 @@ SUBDIRS += plugins
 endif
 
 #AM_CXXFLAGS = -DUSE_ARES
-AM_CXXFLAGS = -I $(top_srcdir)
+AM_CXXFLAGS = -I $(top_srcdir)/QWAK
 
 sbin_PROGRAMS = repro
 repro_SOURCES = repro.cxx

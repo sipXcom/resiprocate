@@ -1,9 +1,9 @@
 # $Id$
 
-EXTRA_DIST = ichat-gw.config
-EXTRA_DIST += doc
-EXTRA_DIST += *.sln
-EXTRA_DIST += *.vcproj
+EXTRA_DIST = $(srcdir)/ichat-gw.config
+EXTRA_DIST += $(srcdir)/doc
+EXTRA_DIST += $(srcdir)/*.sln
+EXTRA_DIST += $(srcdir)/*.vcproj
 
 SUBDIRS = .
 # this has more external dependencies, it has been adapted

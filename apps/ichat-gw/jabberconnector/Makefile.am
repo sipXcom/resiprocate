@@ -1,6 +1,6 @@
 # $Id$
 
-EXTRA_DIST = *.vcproj
+EXTRA_DIST = $(srcdir)/*.vcproj
 
 SUBDIRS = .
 

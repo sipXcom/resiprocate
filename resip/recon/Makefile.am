@@ -1,10 +1,10 @@
 # $Id$
 
-EXTRA_DIST = readme.txt
-EXTRA_DIST += *.vcproj
-EXTRA_DIST += *.sln
-EXTRA_DIST += recon_10_0.vcxproj recon_10_0.vcxproj.filters
-EXTRA_DIST += doc
+EXTRA_DIST = $(srcdir)/readme.txt
+EXTRA_DIST += $(srcdir)/*.vcproj
+EXTRA_DIST += $(srcdir)/*.sln
+EXTRA_DIST += $(srcdir)/recon_10_0.vcxproj $(srcdir)/recon_10_0.vcxproj.filters
+EXTRA_DIST += $(srcdir)/doc
 
 SUBDIRS = .
 SUBDIRS += test

@@ -1,9 +1,9 @@
 # $Id$
 
-EXTRA_DIST = Doxyfile
-EXTRA_DIST += dum_10_0.vcxproj dum_10_0.vcxproj.filters
-EXTRA_DIST += *.vcproj
-EXTRA_DIST += doc
+EXTRA_DIST = $(srcdir)/Doxyfile
+EXTRA_DIST += $(srcdir)/dum_10_0.vcxproj $(srcdir)/dum_10_0.vcxproj.filters
+EXTRA_DIST += $(srcdir)/*.vcproj
+EXTRA_DIST += $(srcdir)/doc
 
 SUBDIRS = . test
 

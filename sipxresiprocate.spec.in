@@ -1,0 +1,145 @@
+Name: @PACKAGE@
+Version: @VERSION@
+Release: 1
+Summary: SIP and TURN stacks, with SIP proxy and TURN server implementations
+License: VSL
+Url: http://www.resiprocate.org
+Source: https://www.resiprocate.org/files/pub/reSIProcate/releases/%name-%version.tar.gz
+BuildRequires: libtool automake autoconf
+#BuildRequires: asio-devel
+BuildRequires: boost-devel
+BuildRequires: c-ares-devel
+BuildRequires: cppunit-devel
+BuildRequires: gperf
+%if 0%{?fedora} >= 18
+BuildRequires: db4-cxx-devel
+BuildRequires: systemd
+%endif
+BuildRequires: db4-devel
+BuildRequires: openssl-devel >= 0.9.8
+BuildRequires: pcre-devel
+BuildRequires: perl
+BuildRequires: popt-devel
+BuildRequires: xerces-c-devel
+Requires: openssl >= 0.9.8
+Requires: chkconfig
+
+
+%description
+The reSIProcate components, particularly the SIP stack, are in use in both
+commercial and open-source products. The project is dedicated to maintaining
+a complete, correct, and commercially usable implementation of SIP and a few
+related protocols.
+
+%package libs
+Summary: Shared libraries http://www.resiprocate.org
+Obsoletes: resiprocate
+
+%description libs
+reSIProcate is a framework that aims to fully implement the SIP protocol
+in first class C++.  It is intended for use in other applications,
+such as the repro SIP proxy.
+This package provides the core libraries: librutil (utilities),
+libresip (SIP stack/RFC compliant message parsing) and
+libdum (SIP Dialog Usage Manager, a state machine for SIP dialogs).
+
+%package devel
+Summary: reSIProcate development files
+Requires: %{name}-libs%{?_isa} = %{version}-%{release}
+Obsoletes: resiprocate-devel
+
+%description devel
+Resiprocate SIP Stack development files.
+
+%package repro
+Summary: SIP proxy
+Requires(pre): shadow-utils
+
+%description repro
+repro is the SIP proxy developed as part of the reSIProcate project.
+It provides a high-quality, low maintenance solution for serving
+small and large IP telephony installations.
+reSIProcate is a framework that aims to fully implement the SIP protocol
+in first class C++.  It is intended for use in other applications,
+such as the repro SIP proxy.
+
+
+%prep
+%setup -q
+
+%build
+export LDFLAGS="${LDFLAGS} -L%{_libdir}/mysql -L%{_libdir}/libdb4"
+CXXFLAGS="%{optflags} -I%{_includedir}/libdb4 -I${PWD}/contrib/cajun/include" %configure --with-c-ares --with-ssl --with-repro --enable-ipv6
+sed -i 's|^hardcode_libdir_flag_spec=.*|hardcode_libdir_flag_spec=""|g' libtool
+sed -i 's|^runpath_var=LD_RUN_PATH|runpath_var=DIE_RPATH_DIE|g' libtool
+make %{?_smp_mflags}
+
+%install
+make DESTDIR=%{buildroot} install
+
+
+%post libs -p /sbin/ldconfig
+
+%postun libs -p /sbin/ldconfig
+
+
+
+%clean
+rm -rf $RPM_BUILD_ROOT
+
+%files libs
+%doc COPYING
+%{_libdir}/libdum-*.so
+%{_libdir}/librepro-*.so
+%{_libdir}/libresip-*.so
+%{_libdir}/librutil-*.so
+
+
+%files devel
+%dir %{_includedir}/repro/
+%dir %{_includedir}/repro/monkeys/
+%dir %{_includedir}/repro/stateAgents/
+%dir %{_includedir}/resip/
+%dir %{_includedir}/resip/dum/
+%dir %{_includedir}/resip/dum/ssl/
+%dir %{_includedir}/resip/stack/
+%dir %{_includedir}/resip/stack/ssl/
+%dir %{_includedir}/rutil/
+%dir %{_includedir}/rutil/dns/
+%dir %{_includedir}/rutil/ssl/
+%dir %{_includedir}/rutil/stun/
+%dir %{_includedir}/rutil/wince/
+%{_includedir}/repro/*.hxx
+%{_includedir}/repro/*/*.hxx
+%{_includedir}/resip/dum/*.hxx
+%{_includedir}/resip/dum/ssl/*.hxx
+%{_includedir}/resip/stack/*.hxx
+%{_includedir}/resip/stack/ssl/*.hxx
+%{_includedir}/rutil/*.hxx
+%{_includedir}/rutil/*/*.hxx
+%{_libdir}/libdum.so
+%{_libdir}/librepro.so
+%{_libdir}/libresip.so
+%{_libdir}/librutil.so
+%{_libdir}/libdum.a
+%{_libdir}/librepro.a
+%{_libdir}/libresip.a
+%{_libdir}/librutil.a
+%{_libdir}/libdum.la
+%{_libdir}/librepro.la
+%{_libdir}/libresip.la
+%{_libdir}/librutil.la
+
+
+%files repro
+%{_sbindir}/repro
+%{_sbindir}/reprocmd
+%{_sbindir}/queuetostream
+%{_mandir}/man8/repro*.8*
+
+
+%changelog
+* Sat Nov 24 2012 Daniel Pocock <daniel@pocock.com.au> - @VERSION@-1
+- Produce multiple packages for stack/libs, daemons, sipdialer
+- Initial build based on autotools
+

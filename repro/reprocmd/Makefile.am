@@ -1,7 +1,7 @@
 # $Id$
 
-EXTRA_DIST = reprocmd_10_0.vcxproj reprocmd_10_0.vcxproj.filters
-EXTRA_DIST += *.vcproj
+EXTRA_DIST = $(srcdir)/reprocmd_10_0.vcxproj $(srcdir)/reprocmd_10_0.vcxproj.filters
+EXTRA_DIST += $(srcdir)/*.vcproj
 
 #AM_CXXFLAGS = -DUSE_ARES
 AM_CXXFLAGS = -I $(top_srcdir)

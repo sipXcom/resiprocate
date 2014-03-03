@@ -1,21 +1,21 @@
 # $Id$
 
-EXTRA_DIST = dayofweek.gperf
-EXTRA_DIST += Doxyfile
-EXTRA_DIST += FAQ
-EXTRA_DIST += gperfNotes.txt
-EXTRA_DIST += gperf_w32.bat
-EXTRA_DIST += groups.doc
-EXTRA_DIST += HeaderHash.gperf
-EXTRA_DIST += mainpage.doc
-EXTRA_DIST += MethodHash.gperf
-EXTRA_DIST += month.gperf
-EXTRA_DIST += ParameterHash.gperf
-EXTRA_DIST += parametersA.gperf
-EXTRA_DIST += Readme-Compliance.txt
-EXTRA_DIST += resiprocate_10_0.vcxproj resiprocate_10_0.vcxproj.filters
-EXTRA_DIST += *.vcproj
-EXTRA_DIST += ssl/WinSecurity.cxx
+EXTRA_DIST = $(srcdir)/dayofweek.gperf
+EXTRA_DIST += $(srcdir)/Doxyfile
+EXTRA_DIST += $(srcdir)/FAQ
+EXTRA_DIST += $(srcdir)/gperfNotes.txt
+EXTRA_DIST += $(srcdir)/gperf_w32.bat
+EXTRA_DIST += $(srcdir)/groups.doc
+EXTRA_DIST += $(srcdir)/HeaderHash.gperf
+EXTRA_DIST += $(srcdir)/mainpage.doc
+EXTRA_DIST += $(srcdir)/MethodHash.gperf
+EXTRA_DIST += $(srcdir)/month.gperf
+EXTRA_DIST += $(srcdir)/ParameterHash.gperf
+EXTRA_DIST += $(srcdir)/parametersA.gperf
+EXTRA_DIST += $(srcdir)/Readme-Compliance.txt
+EXTRA_DIST += $(srcdir)/resiprocate_10_0.vcxproj $(srcdir)/resiprocate_10_0.vcxproj.filters
+EXTRA_DIST += $(srcdir)/*.vcproj
+EXTRA_DIST += $(srcdir)/ssl/WinSecurity.cxx
 
 SUBDIRS = . test
 

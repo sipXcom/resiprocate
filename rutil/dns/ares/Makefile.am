@@ -31,10 +31,10 @@ man3_MANS = \
 	ares_free_errmem.3      ares_gethostbyname.3  ares_parse_a_reply.3  \
 	ares_search.3
 
-EXTRA_DIST = $(man3_MANS) adig.c ahost.c
-EXTRA_DIST += *.vcproj
-EXTRA_DIST += *.vcxproj
-EXTRA_DIST += *.vcxproj.filters
+EXTRA_DIST = $(man3_MANS) $(srcdir)/adig.c $(srcdir)/ahost.c
+EXTRA_DIST += $(srcdir)/*.vcproj
+EXTRA_DIST += $(srcdir)/*.vcxproj
+EXTRA_DIST += $(srcdir)/*.vcxproj.filters
 
 #adig: adig.o libares.a
 #	${CC} ${LDFLAGS} -o $@ adig.o libares.a ${LIBS}

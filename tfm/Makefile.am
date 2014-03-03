@@ -1,9 +1,9 @@
 
 
-EXTRA_DIST = LICENSE
-EXTRA_DIST += README
-EXTRA_DIST += tfm.sln
-EXTRA_DIST += *.vcproj
+EXTRA_DIST = $(srcdir)/LICENSE
+EXTRA_DIST += $(srcdir)/README
+EXTRA_DIST += $(srcdir)/tfm.sln
+EXTRA_DIST += $(srcdir)/*.vcproj
 
 # autotools won't build the contrib stuff
 # it is distributed in the contrib tarball as many platforms

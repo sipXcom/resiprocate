@@ -7,12 +7,12 @@
 # distribution tarball so that they build on Windows
 #
 
-EXTRA_DIST = ca.pem
-EXTRA_DIST += doc
-EXTRA_DIST += *.vcproj
-EXTRA_DIST += *.vcxproj *.vcxproj.filters
-EXTRA_DIST += MOHParkServer.config
-EXTRA_DIST += music.wav
+EXTRA_DIST = $(srcdir)/ca.pem
+EXTRA_DIST += $(srcdir)/doc
+EXTRA_DIST += $(srcdir)/*.vcproj
+EXTRA_DIST += $(srcdir)/*.vcxproj $(srcdir)/*.vcxproj.filters
+EXTRA_DIST += $(srcdir)/MOHParkServer.config
+EXTRA_DIST += $(srcdir)/music.wav
 
 LDADD = ../librecon.la
 LDADD += -lsipXsdp

@@ -8,18 +8,18 @@ endif
 
 SUBDIRS += . test
 
-EXTRA_DIST = fixupGperf
-EXTRA_DIST += mainpage.doc
-EXTRA_DIST += rutil_10_0.vcxproj rutil_10_0.vcxproj.filters
-EXTRA_DIST += *.vcproj
-EXTRA_DIST += WinCompat.cxx
-EXTRA_DIST += msvc/*.h
-EXTRA_DIST += dns/LocalDns.cxx
+EXTRA_DIST = $(srcdir)/fixupGperf
+EXTRA_DIST += $(srcdir)/mainpage.doc
+EXTRA_DIST += $(srcdir)/rutil_10_0.vcxproj $(srcdir)/rutil_10_0.vcxproj.filters
+EXTRA_DIST += $(srcdir)/*.vcproj
+EXTRA_DIST += $(srcdir)/WinCompat.cxx
+EXTRA_DIST += $(srcdir)/msvc/*.h
+EXTRA_DIST += $(srcdir)/dns/LocalDns.cxx
 
 #AM_CXXFLAGS = -I../contrib/ares -DUSE_ARES
 AM_CXXFLAGS = -I $(top_srcdir) 
 if USE_ARES
-AM_CXXFLAGS += -I $(top_srcdir)/rutil/dns/ares
+AM_CXXFLAGS += -I $(srcdir)/dns/ares
 endif
 
 lib_LTLIBRARIES = librutil.la

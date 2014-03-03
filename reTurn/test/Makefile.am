@@ -1,7 +1,7 @@
 # $Id$
 
-EXTRA_DIST = stunTestVectors_10_0.vcxproj stunTestVectors_10_0.vcxproj.filters
-EXTRA_DIST += *.vcproj
+EXTRA_DIST = $(srcdir)/stunTestVectors_10_0.vcxproj $(srcdir)/stunTestVectors_10_0.vcxproj.filters
+EXTRA_DIST += $(srcdir)/*.vcproj
 
 #AM_CXXFLAGS = -DUSE_ARES
 AM_CXXFLAGS = -I $(top_srcdir)

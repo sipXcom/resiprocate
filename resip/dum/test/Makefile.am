@@ -1,8 +1,8 @@
 # $Id$
 
-EXTRA_DIST = *.vcxproj *.vcxproj.filters
-EXTRA_DIST += *.vcproj
-EXTRA_DIST += fullHeaders.bytes
+EXTRA_DIST = $(srcdir)/*.vcxproj $(srcdir)/*.vcxproj.filters
+EXTRA_DIST += $(srcdir)/*.vcproj
+EXTRA_DIST += $(srcdir)/fullHeaders.bytes
 
 #AM_CXXFLAGS = -DUSE_ARES
 AM_CXXFLAGS = -I $(top_srcdir)

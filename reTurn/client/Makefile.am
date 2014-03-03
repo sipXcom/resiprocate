@@ -1,7 +1,7 @@
 # $Id$
 
-EXTRA_DIST = *.vcproj
-EXTRA_DIST += *.vcxproj *.vcxproj.filters
+EXTRA_DIST = $(srcdir)/*.vcproj
+EXTRA_DIST += $(srcdir)/*.vcxproj $(srcdir)/*.vcxproj.filters
 
 SUBDIRS = . 
 SUBDIRS += test

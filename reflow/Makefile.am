@@ -1,8 +1,8 @@
 # $Id$
 
-EXTRA_DIST = ReadMe.txt
-EXTRA_DIST += *.vcproj
-EXTRA_DIST += reflow_10_0.vcxproj reflow_10_0.vcxproj.filters
+EXTRA_DIST = $(srcdir)/ReadMe.txt
+EXTRA_DIST += $(srcdir)/*.vcproj
+EXTRA_DIST += $(srcdir)/reflow_10_0.vcxproj $(srcdir)/reflow_10_0.vcxproj.filters
 
 SUBDIRS = .
 #SUBDIRS += dtls_wrapper/test
