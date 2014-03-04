@@ -133,6 +133,16 @@ AH_TEMPLATE([DB_HEADER], [Name of header for libdb])
 
 AC_DEFINE_UNQUOTED(RESIP_SIP_MSG_MAX_BYTES, ${RESIP_SIP_MSG_MAX_BYTES:-10485760}, [Maximum SIP message size to try and parse (bytes)])
 
+AC_ARG_ENABLE(dep-check,
+  AS_HELP_STRING([--disable-dep-check],
+  [Do not check for dependencies other then those required for dist target]))
+
+AC_DEFUN([SF_MISSING_DEP],[
+  if test "x$enable_dep_check" != "xno"; then
+    AC_MSG_ERROR([$1])
+  fi
+])
+
 AM_CONDITIONAL(USE_ARES, true)
 AM_CONDITIONAL(USE_CARES, false)
 AC_ARG_WITH(c-ares,
@@ -142,7 +152,7 @@ AC_ARG_WITH(c-ares,
  AM_CONDITIONAL(USE_ARES, false)
  AM_CONDITIONAL(USE_CARES, true)
  AC_SEARCH_LIBS(ares_init, cares, , [
-     AC_MSG_ERROR([unable to find ares_init(), install libcares and/or set LDFLAGS, or use contrib/ares])
+     SF_MISSING_DEP([unable to find ares_init(), install libcares and/or set LDFLAGS, or use contrib/ares])
    ])],
  [ AC_DEFINE_UNQUOTED(USE_ARES, , USE_ARES)
    CXXFLAGS="$CXXFLAGS -I`pwd`/rutil/dns/ares"
