@@ -260,7 +260,11 @@ AM_CONDITIONAL(BUILD_TFM, false)
 AC_ARG_WITH(tfm,
 [  --with-tfm              Build TFM, links against Netxx and cppunit],
  [AC_DEFINE_UNQUOTED(BUILD_TFM, , BUILD_TFM)
- AM_CONDITIONAL(BUILD_TFM, true)], )
+ AM_CONDITIONAL(BUILD_TFM, true)
+ LDFLAGS="${LDFLAGS} -L${srcdir}/contrib/Netxx-0.3.2/src"
+ CPPFLAGS="${CPPFLAGS} -I${srcdir}/contrib/Netxx-0.3.2/include"
+ AC_SUBST(LDFLAGS)
+ AC_SUBST(CPPFLAGS)],)
 
 AM_CONDITIONAL(BUILD_APPS, false)
 AC_ARG_WITH(apps,

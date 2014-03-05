@@ -22,9 +22,9 @@ CommandLineParser::CommandLineParser(int argc, char** argv)
    const char* multihomedAddrs=0;
    const char* recordRoute = "sip:127.0.0.1";
    int flowTokens = 0;
-   const char* udpPorts = "5060";
-   const char* tcpPorts = "5060";
-   const char* tlsPorts = "5061";
+   const char* udpPorts = "55060";
+   const char* tcpPorts = "55060";
+   const char* tlsPorts = "55061";
    const char* dtlsPorts = 0;
    int noV4 = 0;
    int noV6 = 0;
@@ -72,9 +72,9 @@ CommandLineParser::CommandLineParser(int argc, char** argv)
       {"userIPAddr",   0,  POPT_ARG_STRING, &userIPAddr,  0, "User agents will bind to this interface", "192.168.0.12"},
       {"multihome",   0,  POPT_ARG_STRING, &multihomedAddrs,  0, "A comma-separated list of available IP addresses for this machine; this can be used to test SCTP multihoming, when it is supported", ""},
       {"mysqlServer",    'x',  POPT_ARG_STRING| POPT_ARGFLAG_SHOW_DEFAULT, &mySqlServer,  0, "enable MySQL and provide name of server", "localhost"},
-      {"udp",            0,  POPT_ARG_STRING| POPT_ARGFLAG_SHOW_DEFAULT,    &udpPorts, 0, "add UDP transport on specified port/s", "5060"},
-      {"tcp",            0,  POPT_ARG_STRING | POPT_ARGFLAG_SHOW_DEFAULT,    &tcpPorts, 0, "add TCP transport on specified port/s", "5060"},
-      {"tls",            0,  POPT_ARG_STRING | POPT_ARGFLAG_SHOW_DEFAULT,    &tlsPorts, 0, "add TLS transport on specified port/s", "5061"},
+      {"udp",            0,  POPT_ARG_STRING| POPT_ARGFLAG_SHOW_DEFAULT,    &udpPorts, 0, "add UDP transport on specified port/s", "55060"},
+      {"tcp",            0,  POPT_ARG_STRING | POPT_ARGFLAG_SHOW_DEFAULT,    &tcpPorts, 0, "add TCP transport on specified port/s", "55060"},
+      {"tls",            0,  POPT_ARG_STRING | POPT_ARGFLAG_SHOW_DEFAULT,    &tlsPorts, 0, "add TLS transport on specified port/s", "55061"},
       {"dtls",           0,  POPT_ARG_STRING | POPT_ARGFLAG_SHOW_DEFAULT,    &dtlsPorts, 0, "add DTLS transport on specified port/s", "none (dtls disabled)"},
       {"disable-v6",   0,   POPT_ARG_NONE, &noV6, 0, "disable IPV6", 0},
       {"disable-v4",   0,   POPT_ARG_NONE, &noV4, 0, "disable IPV4", 0},

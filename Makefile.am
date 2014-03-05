@@ -8,7 +8,15 @@ SUBDIRS += resip
 if BUILD_REPRO
 SUBDIRS += repro
 endif
+
 if BUILD_TFM
+all: build-netxx
+
+build-netxx: 
+	cd $(srcdir)/contrib/Netxx-0.3.2/ && \
+	perl configure.pl --disable-examples --disable-shared && \
+	make
+
 SUBDIRS += tfm
 endif
 

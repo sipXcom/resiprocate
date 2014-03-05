@@ -170,8 +170,8 @@ TestRepro::TestRepro(const resip::Data& name,
 
    // !bwc! TODO Once we have something we _do_ support, put that here.
    mProxy.addSupportedOption("p-fakeoption");
-   mStack.addAlias("localhost",5060);
-   mStack.addAlias("localhost",5061);
+   mStack.addAlias("localhost",55060);
+   mStack.addAlias("localhost",55061);
 
    std::list<resip::Data> domains;
    domains.push_back("127.0.0.1");
@@ -180,7 +180,7 @@ TestRepro::TestRepro(const resip::Data& name,
    try
    {
       Transport *t = mStack.addTransport(UDP, 
-                           5060, 
+                           55060,
                            V4,
                            StunDisabled,
                            nwInterface,
@@ -190,7 +190,7 @@ TestRepro::TestRepro(const resip::Data& name,
                            0);
       NameAddr rr;
       rr.uri().host() = "127.0.0.1";
-      rr.uri().port() = 5060;
+      rr.uri().port() = 55060;
       t->setRecordRoute(rr);
    }
    catch(...)
@@ -199,7 +199,7 @@ TestRepro::TestRepro(const resip::Data& name,
    try
    {
       Transport *t = mStack.addTransport(TCP, 
-                           5060, 
+                           55060,
                            V4,
                            StunDisabled,
                            nwInterface,
@@ -209,7 +209,7 @@ TestRepro::TestRepro(const resip::Data& name,
                            0);
       NameAddr rr;
       rr.uri().host() = "127.0.0.1";
-      rr.uri().port() = 5060;
+      rr.uri().port() = 55060;
       rr.uri().param(resip::p_transport)="tcp";
       t->setRecordRoute(rr);
    }
@@ -220,7 +220,7 @@ TestRepro::TestRepro(const resip::Data& name,
    try
    {
       Transport *t = mStack.addTransport(SCTP, 
-                           5060, 
+                           55060,
                            V4,
                            StunDisabled,
                            "0.0.0.0",// multihomed
@@ -230,7 +230,7 @@ TestRepro::TestRepro(const resip::Data& name,
                            0);
       NameAddr rr;
       rr.uri().host() = "127.0.0.1";
-      rr.uri().port() = 5060;
+      rr.uri().port() = 55060;
       rr.uri().param(resip::p_transport)="sctp";
       t->setRecordRoute(rr);
    }
@@ -245,7 +245,7 @@ TestRepro::TestRepro(const resip::Data& name,
    try
    {
       Transport *t = mStack.addTransport(TLS, 
-                           5061, 
+                           55061,
                            V4, 
                            StunDisabled, 
                            nwInterface, 
@@ -255,7 +255,7 @@ TestRepro::TestRepro(const resip::Data& name,
                            0);
       NameAddr rr;
       rr.uri().host() = "localhost";
-      rr.uri().port() = 5061;
+      rr.uri().port() = 55061;
       rr.uri().param(resip::p_transport)="tls";
       t->setRecordRoute(rr);
    }

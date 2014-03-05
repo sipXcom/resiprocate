@@ -74,7 +74,7 @@ TestProxy::TestProxy(const Data& name,
       {
          try
          {
-            Source s(resip::DnsUtil::getLocalIpAddress(interfaceObj), 5060, TCP);
+            Source s(resip::DnsUtil::getLocalIpAddress(interfaceObj), 55060, TCP);
             addSource(s);
          }
          catch (resip::DnsUtil::Exception& e)
@@ -84,13 +84,13 @@ TestProxy::TestProxy(const Data& name,
       }
       else
       {
-         Source s(interfaceObj,5060,TCP);
+         Source s(interfaceObj,55060,TCP);
          addSource(s);
       }
    }
    else
    {
-      addSources(DnsUtils::makeSourceSet(host,5060,TCP));
+      addSources(DnsUtils::makeSourceSet(host,55060,TCP));
       
    }
 
@@ -99,13 +99,13 @@ TestProxy::TestProxy(const Data& name,
       std::list<std::pair<Data, Data> > ifs(resip::DnsUtil::getInterfaces(interfaceObj));
       for(std::list<std::pair<Data, Data> >::iterator i=ifs.begin(); i!=ifs.end(); ++i)
       {
-         Source s(i->second, 5060, SCTP);
+         Source s(i->second, 55060, SCTP);
          addSource(s);
       }
    }
    else
    {
-      Source s(interfaceObj, 5060, SCTP);
+      Source s(interfaceObj, 55060, SCTP);
       addSource(s);
    }
    
@@ -115,7 +115,7 @@ TestProxy::TestProxy(const Data& name,
       {
          try
          {
-            Source s(resip::DnsUtil::getLocalIpAddress(interfaceObj), 5061, TLS);
+            Source s(resip::DnsUtil::getLocalIpAddress(interfaceObj), 55061, TLS);
             addSource(s);
          }
          catch (resip::DnsUtil::Exception& e)
@@ -125,13 +125,13 @@ TestProxy::TestProxy(const Data& name,
       }
       else
       {
-         Source s(interfaceObj,5061,TLS);
+         Source s(interfaceObj,55061,TLS);
          addSource(s);
       }
    }
    else
    {
-      addSources(DnsUtils::makeSourceSet(host,5061,TLS));
+      addSources(DnsUtils::makeSourceSet(host,55061,TLS));
    }
 
 }
