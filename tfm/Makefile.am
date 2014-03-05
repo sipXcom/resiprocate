@@ -70,8 +70,8 @@ libtfm_la_SOURCES = ActionBase.cxx \
         predicates/SubscribeExpires.cxx \
 		predicates/NotifyContents.cxx
 
-#libtfmincludedir = $(includedir)/repro
-noinst_HEADERS =  ActionBase.hxx \
+libtfmincludedir = $(includedir)/tfm
+nobase_libtfminclude_HEADERS =  ActionBase.hxx \
         AsciiGraphic.hxx \
         BindPointerAction.hxx \
         Box.hxx \

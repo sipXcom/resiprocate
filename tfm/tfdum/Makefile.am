@@ -34,8 +34,9 @@ SHARED_SRC = DumUserAgent.cxx \
         TestServerPagerMessage.cxx \
         TfdTcpTransport.cxx \
         TfdTestSipEndPoint.cxx
-        
-noinst_HEADERS = BindHandle.hxx \
+
+libtfmdumincludedir = $(includedir)/tfm/tfdum
+nobase_libtfmduminclude_HEADERS = BindHandle.hxx \
         ClientOutOfDialogReqEvent.hxx \
         ClientPagerMessageEvent.hxx \
         ClientPublicationEvent.hxx \

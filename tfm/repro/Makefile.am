@@ -31,7 +31,8 @@ sanityTests_LDADD += -lNetxx
 
 sanityTests_SOURCES = sanityTests.cxx
 
-noinst_HEADERS = CommandLineParser.hxx \
+libtfmreproincludedir = $(includedir)/tfm/repro
+nobase_libtfmreproinclude_HEADERS = CommandLineParser.hxx \
         ReproFixture.hxx \
         TestRepro.hxx \
         TestReproUser.hxx 
