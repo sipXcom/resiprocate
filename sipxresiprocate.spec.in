@@ -11,11 +11,19 @@ BuildRequires: boost-devel
 BuildRequires: c-ares-devel
 BuildRequires: cppunit-devel
 BuildRequires: gperf
+
 %if 0%{?fedora} >= 18
-BuildRequires: db4-cxx-devel
-BuildRequires: systemd
+BuildRequires: libdb4-cxx-devel
+BuildRequires: libdb4-devel
+Requires: libdb4-cxx
+Requires: libdb4
 %endif
+
+%if 0%{?rhel} >= 6
 BuildRequires: db4-devel
+Requires: db4
+%endif
+
 BuildRequires: openssl-devel >= 0.9.8
 BuildRequires: pcre-devel
 BuildRequires: perl
