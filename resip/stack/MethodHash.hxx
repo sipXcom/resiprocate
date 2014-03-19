@@ -1,5 +1,8 @@
 #if !defined(RESIP_METHODSHASH_HXX)
 #define RESIP_METHODSHASH_HXX
+
+#include "resip/stack/MethodTypes.hxx"
+
 namespace resip 
 {
 

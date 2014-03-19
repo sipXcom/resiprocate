@@ -32,21 +32,23 @@
 
 #include <string.h>
 #include <ctype.h>
+#include "resip/stack/MethodHash.hxx"
 #include "resip/stack/MethodTypes.hxx"
+
 
 namespace resip
 {
 #line 9 "MethodHash.gperf"
-struct methods { const char *name; MethodTypes type; };
+//struct methods { const char *name; MethodTypes type; };
 /* maximum key range = 31, duplicates = 0 */
 
-class MethodHash
-{
-private:
-  static inline unsigned int hash (const char *str, unsigned int len);
-public:
-  static const struct methods *in_word_set (const char *str, unsigned int len);
-};
+//class MethodHash
+//{
+//private:
+//  static inline unsigned int hash (const char *str, unsigned int len);
+//public:
+//  static const struct methods *in_word_set (const char *str, unsigned int len);
+//};
 
 inline unsigned int
 MethodHash::hash (register const char *str, register unsigned int len)
