@@ -1,5 +1,5 @@
 
-AC_INIT(sipxresiprocate,4.6.0)
+AC_INIT(sipxresiprocate,14.04)
 AC_CONFIG_SRCDIR(repro/repro.cxx)
 
 SO_RELEASE=`echo $PACKAGE_VERSION | cut -f1,2 -d.`
