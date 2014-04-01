@@ -1,6 +1,6 @@
 Name: @PACKAGE@
 Version: @VERSION@
-Release: 2
+Release: 3
 Summary: SIP and TURN stacks, with SIP proxy and TURN server implementations
 License: VSL
 Url: http://www.resiprocate.org
