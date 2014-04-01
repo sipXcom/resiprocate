@@ -97,7 +97,8 @@ libdum_la_SOURCES =   \
 	HttpProvider.cxx \
 	HttpGetMessage.cxx \
 	DumHelper.cxx \
-	MergedRequestRemovalCommand.cxx
+	MergedRequestRemovalCommand.cxx \
+	../../rutil/Version.cxx
 
 if USE_SSL
 libdum_la_SOURCES += \
@@ -209,7 +210,8 @@ nobase_duminclude_HEADERS = AppDialog.hxx \
         WsCookieAuthManager.hxx \
 	UsageUseException.hxx \
 	UserAuthInfo.hxx \
-	UserProfile.hxx
+	UserProfile.hxx \
+	../../rutil/Version.hxx
 
 ##############################################################################
 # 
