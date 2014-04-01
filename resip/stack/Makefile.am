@@ -165,7 +165,8 @@ libresip_la_SOURCES = \
 	WsConnection.cxx \
 	WsConnectionBase.cxx \
 	WsCookieContext.cxx \
-	WsDecorator.cxx
+	WsDecorator.cxx \
+	../../rutil/Version.cxx
 
 if USE_SSL
 libresip_la_SOURCES += \
@@ -360,7 +361,8 @@ nobase_resipinclude_HEADERS = AbandonServerTransaction.hxx \
 	WsCookieContext.hxx \
 	WsCookieContextFactory.hxx \
 	X509Contents.hxx \
-	ZeroOutStatistics.hxx
+	ZeroOutStatistics.hxx \
+	../../rutil/Version.hxx
 
 ##############################################################################
 # 

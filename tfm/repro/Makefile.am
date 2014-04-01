@@ -13,7 +13,8 @@ libtfmrepro_la_LIBADD += ../../repro/librepro.la
 libtfmrepro_la_SOURCES = TestRepro.cxx \
         TestReproUser.cxx \
         CommandLineParser.cxx \
-        ReproFixture.cxx
+        ReproFixture.cxx \
+        ../../rutil/Version.cxx
 
 check_PROGRAMS = sanityTests
 
@@ -35,7 +36,8 @@ libtfmreproincludedir = $(includedir)/tfm/repro
 nobase_libtfmreproinclude_HEADERS = CommandLineParser.hxx \
         ReproFixture.hxx \
         TestRepro.hxx \
-        TestReproUser.hxx 
+        TestReproUser.hxx \
+        ../../rutil/Version.hxx
 
 ##############################################################################
 #

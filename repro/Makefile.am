@@ -113,7 +113,8 @@ librepro_la_SOURCES = \
 	monkeys/SimpleTargetHandler.cxx \
 	monkeys/GeoProximityTargetSorter.cxx \
 	monkeys/RequestFilter.cxx \
-	monkeys/MessageSilo.cxx
+	monkeys/MessageSilo.cxx \
+	../rutil/Version.cxx
 
 reproincludedir = $(includedir)/repro
 nobase_reproinclude_HEADERS = AbstractDb.hxx \
@@ -196,7 +197,8 @@ nobase_reproinclude_HEADERS = AbstractDb.hxx \
 	Worker.hxx \
 	WorkerThread.hxx \
 	XmlRpcConnection.hxx \
-	XmlRpcServerBase.hxx
+	XmlRpcServerBase.hxx \
+	../rutil/Version.hxx
 
 if USE_SSL
 librepro_la_SOURCES += \

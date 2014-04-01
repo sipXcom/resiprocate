@@ -68,7 +68,8 @@ libtfm_la_SOURCES = ActionBase.cxx \
         predicates/ExpectUtils.cxx \
         predicates/SubscribeExpired.cxx \
         predicates/SubscribeExpires.cxx \
-		predicates/NotifyContents.cxx
+		predicates/NotifyContents.cxx \
+	    ../rutil/Version.cxx
 
 libtfmincludedir = $(includedir)/tfm
 nobase_libtfminclude_HEADERS =  ActionBase.hxx \
@@ -125,7 +126,8 @@ nobase_libtfminclude_HEADERS =  ActionBase.hxx \
         TfmDns.hxx \
         TfmHelper.hxx \
         TransportDriver.hxx \
-        WrapperEvent.hxx
+        WrapperEvent.hxx \
+        ../rutil/Version.hxx
 
 ##############################################################################
 #

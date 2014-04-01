@@ -33,7 +33,8 @@ SHARED_SRC = DumUserAgent.cxx \
         TestClientPagerMessage.cxx \
         TestServerPagerMessage.cxx \
         TfdTcpTransport.cxx \
-        TfdTestSipEndPoint.cxx
+        TfdTestSipEndPoint.cxx \
+        ../../rutil/Version.cxx
 
 libtfmdumincludedir = $(includedir)/tfm/tfdum
 nobase_libtfmduminclude_HEADERS = BindHandle.hxx \
@@ -65,4 +66,5 @@ nobase_libtfmduminclude_HEADERS = BindHandle.hxx \
         TestUsage.hxx \
         TestUserAgent.hxx \
         TfdTcpTransport.hxx \
-        TfdTestSipEndPoint.hxx
+        TfdTestSipEndPoint.hxx \
+        ../../rutil/Version.hxx
