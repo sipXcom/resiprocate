@@ -252,6 +252,10 @@ ServerSubscription::dispatch(const SipMessage& msg)
          if (mSubscriptionState == Invalid)
          {
             mSubscriptionState = Terminated;
+
+            // turn off subscription delete
+            // make sure that subscription is not deleted in case that the client
+            // reject subscription with status code >= 300 from onNewSubscription callback
             mDeleteSubscription = false;
 
             if (mEventType != "refer" )
@@ -263,6 +267,8 @@ ServerSubscription::dispatch(const SipMessage& msg)
                handler->onNewSubscriptionFromRefer(getHandle(), msg);
             }
 
+            // turn on subscription delete
+            // make sure that subscription is deleted in order to not have memory leaks
             mDeleteSubscription = true;
 
             if (mLastResponse->header(h_StatusLine).statusCode() >= 300)
