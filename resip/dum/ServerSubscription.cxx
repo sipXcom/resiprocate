@@ -90,7 +90,7 @@ ServerSubscription::reject(int statusCode)
    return mLastResponse;
 }
 
-void ServerSubscription::terminateSubscription(ServerSubscriptionHandler* handler)
+void ServerSubscription::deleteSubscription(ServerSubscriptionHandler* handler)
 {
   if (mDeleteSubscription)
   {
@@ -98,7 +98,6 @@ void ServerSubscription::terminateSubscription(ServerSubscriptionHandler* handle
     delete this;
   }
 }
-
 
 void 
 ServerSubscription::send(SharedPtr<SipMessage> msg)
@@ -129,7 +128,7 @@ ServerSubscription::send(SharedPtr<SipMessage> msg)
       else if (code < 400)
       {
          DialogUsage::send(msg);
-         terminateSubscription(handler);
+         deleteSubscription(handler);
          return;
       }
       else
@@ -137,7 +136,7 @@ ServerSubscription::send(SharedPtr<SipMessage> msg)
          if (shouldDestroyAfterSendingFailure(*msg))
          {
             DialogUsage::send(msg);
-            terminateSubscription(handler);
+            deleteSubscription(handler);
             return;
          }
          else
@@ -151,7 +150,7 @@ ServerSubscription::send(SharedPtr<SipMessage> msg)
       DialogUsage::send(msg);
       if (mSubscriptionState == Terminated)
       {
-        terminateSubscription(handler);
+        deleteSubscription(handler);
       }
    }
 }
@@ -328,7 +327,7 @@ ServerSubscription::dispatch(const SipMessage& msg)
       {
          //in dialog NOTIFY got redirected? Bizarre...
          handler->onError(getHandle(), msg);
-         terminateSubscription(handler);
+         deleteSubscription(handler);
       }
       else
       {
@@ -345,7 +344,7 @@ ServerSubscription::dispatch(const SipMessage& msg)
             case Helper::DialogTermination:
                DebugLog( << "ServerSubscription::UsageTermination: " << msg.brief());
                handler->onError(getHandle(), msg);
-               terminateSubscription(handler);
+               deleteSubscription(handler);
                break;
          }
       }
@@ -437,7 +436,7 @@ ServerSubscription::dialogDestroyed(const SipMessage& msg)
    ServerSubscriptionHandler* handler = mDum.getServerSubscriptionHandler(mEventType);
    assert(handler);   
    handler->onError(getHandle(), msg);
-   terminateSubscription(handler);
+   deleteSubscription(handler);
 }
 
 void 

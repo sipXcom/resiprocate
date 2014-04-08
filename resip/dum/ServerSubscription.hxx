@@ -64,7 +64,7 @@ class ServerSubscription : public BaseSubscription
       
       bool shouldDestroyAfterSendingFailure(const SipMessage& msg);      
 
-      void terminateSubscription(ServerSubscriptionHandler* handler);
+      void deleteSubscription(ServerSubscriptionHandler* handler);
 
       Data mSubscriber;
 
