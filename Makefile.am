@@ -25,7 +25,6 @@ endif
 EXTRA_DIST += $(srcdir)/reSIProcate_10_0.sln
 EXTRA_DIST += $(srcdir)/reSIProcate_8_0.sln
 EXTRA_DIST += $(srcdir)/reSIProcate_9_0.sln
-EXTRA_DIST += $(srcdir)/.tarball-revision
 EXTRA_DIST += sipxresiprocate.spec
 EXTRA_DIST += RELEASE-PROCESS.txt
 EXTRA_DIST += build/configure-android.sh
