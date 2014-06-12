@@ -27,6 +27,9 @@ AC_CONFIG_AUX_DIR([build-aux])
 AC_CONFIG_MACRO_DIR([m4])
 AM_INIT_AUTOMAKE
 
+m4_include([config/general.m4])
+m4_include([config/sipXlib.m4])
+
 m4_pattern_forbid([^PKG_])
 
 AC_CANONICAL_HOST
@@ -34,6 +37,8 @@ AM_CONFIG_HEADER(config.h)
 
 AC_PROG_CC
 AC_PROG_CXX
+
+SFAC_INIT_FLAGS
 
 AC_PROG_INSTALL
 
@@ -176,7 +181,7 @@ AC_ARG_WITH(c-ares,
    ])
 
 AM_CONDITIONAL(USE_SSL, false)
-AC_ARG_WITH(ssl, 
+AC_ARG_WITH(ssl,
 [  --with-ssl              Link against OpenSSL libraries],
  [AC_DEFINE_UNQUOTED(USE_SSL, , USE_SSL)
  AC_SUBST(LIBSSL_LIBADD, "-lssl -lcrypto")
@@ -215,13 +220,13 @@ AC_ARG_ENABLE(dtls,
 AC_ARG_ENABLE(pedantic-stack,
 [  --enable-pedantic-stack Enable pedantic behavior (fully parse all messages)],
  [AC_DEFINE_UNQUOTED(PEDANTIC_STACK, 1, PEDANTIC_STACK)],  )
- 
+
 AM_CONDITIONAL(USE_MYSQL, false)
 AC_ARG_WITH(mysql,
 [  --with-mysql            Link against MySQL client libraries],
  [AC_DEFINE_UNQUOTED(USE_MYSQL, , USE_MYSQL)
  AC_SUBST(LIBMYSQL_LIBADD, "-lmysqlclient_r")
- AM_CONDITIONAL(USE_MYSQL, true)], 
+ AM_CONDITIONAL(USE_MYSQL, true)],
  [ AC_SUBST(LIBMYSQL_LIBADD, "")])
 
 AM_CONDITIONAL(USE_MAXMIND_GEOIP, false)
