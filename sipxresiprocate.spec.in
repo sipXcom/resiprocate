@@ -16,8 +16,12 @@ BuildRequires: gperf
 %if 0%{?fedora} >= 18
 BuildRequires: libdb4-cxx-devel
 BuildRequires: libdb4-devel
+BuildRequires: libdb-cxx-devel
+BuildRequires: libdb-devel
 Requires: libdb4-cxx
 Requires: libdb4
+Requires: libdb-cxx
+Requires: libdb
 %endif
 
 %if 0%{?rhel} >= 6
