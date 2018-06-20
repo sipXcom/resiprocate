@@ -29,6 +29,9 @@ BuildRequires: db4-devel
 Requires: db4
 %endif
 
+BuildRequires: libdb4-cxx-devel
+Requires: libdb4-cxx
+
 BuildRequires: openssl-devel >= 0.9.8
 BuildRequires: pcre-devel
 BuildRequires: perl
