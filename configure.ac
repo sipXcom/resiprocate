@@ -1,5 +1,5 @@
 
-AC_INIT(sipxresiprocate,19.04)
+AC_INIT(sipxresiprocate,19.08)
 AC_CONFIG_SRCDIR(repro/repro.cxx)
 
 RESIPROCATE_INTERNAL_VERSION="1.9"
